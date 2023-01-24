@@ -85,7 +85,7 @@ text-decoration: underline;
 <script type="text/javascript">
 function onScanSuccess(qrCodeMessage) {
     document.getElementById('result1').innerHTML = ' <span class="result">TotelepepCode : <b>'+qrCodeMessage+'</b></span>  ' ;
-    document.getElementById('result').innerHTML = ' <span class="result"><a href="https://jsoneditoronline.org/#left=url.https%3A%2F%2Fjsoneditoronline.herokuapp.com%2Fv1%2Fforwarder%2Furl%3Furl%3Dhttp%253A%252F%252Fplayonlineltd.net%252FWebApi%252FGetTicketStatus%253FTicketNumber%253Dpa0-1031213'+qrCodeMessage+'">Click For "'+qrCodeMessage+'" Status</a> </span>  ' ;
+    document.getElementById('result').innerHTML = ' <span class="result"><a href="https://jsoneditoronline.org/#left=url.https%3A%2F%2Fjsoneditoronline.herokuapp.com%2Fv1%2Fforwarder%2Furl%3Furl%3Dhttp%253A%252F%252Fplayonlineltd.net%252FWebApi%252FGetTicketStatus%253FTicketNumber%253D'+qrCodeMessage+'">Click For "'+qrCodeMessage+'" Status</a> </span>  ' ;
     document.getElementById('query').value = ''+qrCodeMessage+'' ;
 }
 
@@ -116,7 +116,7 @@ html5QrcodeScanner.render(onScanSuccess, onScanError);
 <script>
   const f = document.getElementById('form');
   const q = document.getElementById('query');
-  const stevenhills = 'https://jsoneditoronline.org/#left=url.https%3A%2F%2Fjsoneditoronline.herokuapp.com%2Fv1%2Fforwarder%2Furl%3Furl%3Dhttp%253A%252F%252Fplayonlineltd.net%252FWebApi%252FGetTicketStatus%253FTicketNumber%253Dpa0-1031213';
+  const stevenhills = 'https://jsoneditoronline.org/#left=url.https%3A%2F%2Fjsoneditoronline.herokuapp.com%2Fv1%2Fforwarder%2Furl%3Furl%3Dhttp%253A%252F%252Fplayonlineltd.net%252FWebApi%252FGetTicketStatus%253FTicketNumber%253D';
   const site = '';
 
   function submitted(event) {
