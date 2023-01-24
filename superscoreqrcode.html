@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>SuperscoreCode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  .result1{
+    background-color: #004e77;
+    color:#fff;
+    padding:20px;
+  }
+  .row{
+    display:flex;
+  }
+
+</style>
+
+<style>
+  .result{
+    background-color: #141941;
+    color:#fff;
+    padding:20px;
+  }
+  .row{
+    display:flex;
+  }
+
+</style>
+
+<style>
+a { text-decoration: none; }
+
+a:link {
+color: #fff;
+background-color: transparent;
+text-decoration: none;
+}
+a:visited {
+color: #fff;
+background-color: transparent;
+text-decoration: none;
+}
+a:hover {
+color: #fff;
+background-color: transparent;
+text-decoration: underline;
+}
+a:active {
+color: #f7a14c;
+background-color: transparent;
+text-decoration: underline;
+}
+</style>
+</head>
+
+<script src="html5-superscoreqrcode.min.js"></script>
+
+<body style="background-color: #141941;">
+
+<center><b><p style="color:#ffec00;"><img src="https://superscore.mu/content/skin5/images/logo.png" width="140" height="90">&nbsp;  Ticket Status</img></p></b> </center><br>
+
+<center>
+
+<div class="row1">
+  <div class="col1">
+    <div style="width:100%;" id="reader"></div>
+  </div>
+
+  <div class="col" style="padding:30px;">
+    <h4 style="color:#fff;">SCAN RESULT : </h4>
+    <br>
+    <div id="result1">SuperscoreCode : </div>
+    <br><br>
+		<div id="result">Scan Or Check Result Here :</div>
+  </div>
+
+
+</div>
+
+</center>
+
+<center>
+
+<script type="text/javascript">
+function onScanSuccess(qrCodeMessage) {
+    document.getElementById('result1').innerHTML = ' <span class="result">SuperscoreCode : <b>'+qrCodeMessage+'</b></span>  ' ;
+    document.getElementById('result').innerHTML = ' <span class="result"><a href="https://jsoneditoronline.org/#left=url.https%3A%2F%2Fjsoneditoronline.herokuapp.com%2Fv1%2Fforwarder%2Furl%3Furl%3Dhttps%253A%252F%252Fwww.superscore.mu%252FWebApi%252FGetTicketStatus%253FTicketNumber%253D'+qrCodeMessage+'">Click To Check "'+qrCodeMessage+'" Status</a> </span>  ' ;
+    document.getElementById('query').value = ''+qrCodeMessage+'' ;
+}
+
+
+
+
+function onScanError(errorMessage) {
+  //handle scan error
+}
+
+var html5QrcodeScanner = new Html5QrcodeScanner(
+    "reader", { fps: 10, qrbox: 250 });
+html5QrcodeScanner.render(onScanSuccess, onScanError);
+
+</script>
+
+
+<center>
+<form  role="search" id="form">
+  <input class="result1" type="search" id="query" name="q" placeholder="Ticket#" aria-label="TicketStatus" required/>
+  <button class="result1">
+    <b>Check Status</b>
+  </button>
+</form>
+</center>
+
+
+<script>
+  const f = document.getElementById('form');
+  const q = document.getElementById('query');
+  const stevenhills = 'https://jsoneditoronline.org/#left=url.https%3A%2F%2Fjsoneditoronline.herokuapp.com%2Fv1%2Fforwarder%2Furl%3Furl%3Dhttps%253A%252F%252Fwww.superscore.mu%252FWebApi%252FGetTicketStatus%253FTicketNumber%253D';
+  const site = '';
+
+  function submitted(event) {
+    event.preventDefault();
+    const url = stevenhills + q.value;
+    const win = window.open(url, '_self');
+    win.focus();
+  }
+
+  f.addEventListener('submit', submitted);
+</script>
+
+
+<br><br>
+<center><h5 style="color:#fff;">Any ticket number requested through this application is neither stored nor read by any third party other than JSON Editor Online.</h5></center>
+<center><h4 style="color:#fff;"> Sample Request Explained: </h4></center>
+
+<div class="divTable" style="width: 10%;border: 0px solid #fff;" >
+<div class="divTableBody">
+<div class="divTableRow">
+<div class="divTableCell5">text</div>
+<div class="divTableCell6">tree</div>
+<div class="divTableCell5">table</div>
+</div>
+</div>
+</div>
+
+<br>
+
+<style>
+  .divTable{
+	display: table;
+	width: 100%;
+  text-align: left;
+}
+.divTableRow {
+	display: table-row;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+}
+.divTableCell, .divTableHead {
+	border: 0px solid #ffffff;
+	display: table-cell;
+	padding: 3px 10px;
+  color: #0a81bd
+}
+.divTableCell2, .divTableHead {
+	border: 0px solid #0a81bd;
+	display: table-cell;
+	padding: 3px 10px;
+  color: #b7199d
+}
+.divTableCell3, .divTableHead {
+	border: 0px solid #0a81bd;
+	display: table-cell;
+	padding: 3px 10px;
+  color: #00FF00
+}
+.divTableCell4, .divTableHead {
+	border: 0px solid #0a81bd;
+	display: table-cell;
+	padding: 3px 10px;
+  color: #ffffff
+}
+.divTableCell5, .divTableHead {
+	border: 1px solid #fff;
+	display: table-cell;
+	padding: 3px 10px;
+  color: #ffffff
+}
+.divTableCell6, .divTableHead {
+	border: 1px solid #fff;
+	display: table-cell;
+	padding: 3px 10px;
+  color: #004e77
+}
+.divTableCell6 {
+  background-color: #fff
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+	font-weight: bold;
+}
+.divTableFoot {
+	background-color: #EEE;
+	display: table-footer-group;
+	font-weight: bold;
+}
+.divTableBody {
+	display: table-row-group;
+}
+</style>
+
+
+<div class="divTable" style="width: 100%;" >
+<div class="divTableBody">
+<div class="divTableRow">
+<div class="divTableCell">&nbsp;  isSuccess:</div>
+<div class="divTableCell3">true</div>
+<div class="divTableCell4">Request?</div>
+</div>
+<div class="divTableRow">
+<div class="divTableCell">&#8964;transaction</div>
+<div class="divTableCell2">&nbsp;</div>
+<div class="divTableCell4">Betslip Details Follow</div>
+</div>
+<div class="divTableRow">
+<div class="divTableCell">&nbsp;&nbsp;&nbsp; bookingDate:</div>
+<div class="divTableCell3">"2023-01-20-16-22"</div>
+<div class="divTableCell4">Bet Date&Time Year-M-D H-M</div>
+</div>
+<div class="divTableRow">
+<div class="divTableCell">&nbsp;&nbsp;&nbsp; bookingRef:</div>
+<div class="divTableCell3">"K8C-4706596"</div>
+<div class="divTableCell4">Ticket #</div>
+</div>
+<div class="divTableRow">
+<div class="divTableCell">&nbsp;&nbsp;&nbsp; proxyRef:</div>
+<div class="divTableCell2">null</div>
+<div class="divTableCell4">Teller Name /Private</div>
+</div>
+<div class="divTableRow">
+<div class="divTableCell">&nbsp;&nbsp;&nbsp; amount:</div>
+<div class="divTableCell2">""</div>
+<div class="divTableCell4">Bet Stake /Private</div>
+</div>
+<div class="divTableRow">
+<div class="divTableCell">&nbsp;&nbsp;&nbsp; status:</div>
+<div class="divTableCell3">"UNDECIDED"</div>
+<div class="divTableCell4">Result : UNDECIDED/WINNER/LOSER</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp; betPrice:</div>
+  <div class="divTableCell2">null</div>
+  <div class="divTableCell4">Bet Stake After Tax /Private</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp; potentialPayout:</div>
+  <div class="divTableCell2">"NA"</div>
+  <div class="divTableCell4">Payout As Per Stake /Private</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp; cashBackAmount:</div>
+  <div class="divTableCell2">null</div>
+  <div class="divTableCell4">Return Stake Incase Of Void /Private</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp; errorMessage:</div>
+  <div class="divTableCell2">null</div>
+  <div class="divTableCell4">Error Message If Any</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&#8964;bets:[3 items]</div>
+  <div class="divTableCell2">&nbsp;</div>
+  <div class="divTableCell4"># Of Matches/Legs</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8964;0:</div>
+  <div class="divTableCell2">&nbsp;</div>
+  <div class="divTableCell4">Match #1</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;betRef:</div>
+  <div class="divTableCell2">""</div>
+  <div class="divTableCell4">Bet Ref</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;betTime:</div>
+  <div class="divTableCell3">"2023-01-20-18-00"</div>
+  <div class="divTableCell4">Match Date&Time Year-M-D H-M</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8964;competitionName:</div>
+  <div class="divTableCell3">" - India - Indian Super League - SC East Bengal v Hyderabad FC - WIN"</div>
+  <div class="divTableCell4">Match - UND/WIN/LOST/</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;marketCode:</div>
+  <div class="divTableCell3">"CP - Full Time"</div>
+  <div class="divTableCell4">Match Market</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;marketLine:</div>
+  <div class="divTableCell2">null</div>
+  <div class="divTableCell4">Match Market Line</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodCode:</div>
+  <div class="divTableCell2">null</div>
+  <div class="divTableCell4">Match Period Code</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optionName:</div>
+  <div class="divTableCell3">"A"</div>
+  <div class="divTableCell4">Match Code ie. Away</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optionOdd:</div>
+  <div class="divTableCell3">"1.55"</div>
+  <div class="divTableCell4">Match Bet Odd</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;legStatus:</div>
+  <div class="divTableCell2">null</div>
+  <div class="divTableCell4">Match/Leg Validation</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8964;1:</div>
+  <div class="divTableCell2">&nbsp;</div>
+  <div class="divTableCell4">Match #2</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;betRef:</div>
+  <div class="divTableCell2">""</div>
+  <div class="divTableCell4">Bet Ref</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;betTime:</div>
+  <div class="divTableCell3">"2023-01-20-18-00"</div>
+  <div class="divTableCell4">Match Date&Time Year-M-D H-M</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8964;competitionName:</div>
+  <div class="divTableCell3">" - Iran - Pro League - Sanat Naft Abadan FC v Foolad Khuzestan FC - LOS"</div>
+  <div class="divTableCell4">Match - UND/WIN/LOS/</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;marketCode:</div>
+  <div class="divTableCell3">"CP - Full Time"</div>
+  <div class="divTableCell4">Match Market</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;marketLine:</div>
+  <div class="divTableCell2">null</div>
+  <div class="divTableCell4">Match Market Line</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodCode:</div>
+  <div class="divTableCell2">null</div>
+  <div class="divTableCell4">Match Period Code</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optionName:</div>
+  <div class="divTableCell3">"A"</div>
+  <div class="divTableCell4">Match Code ie. Away</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optionOdd:</div>
+  <div class="divTableCell3">"2.25"</div>
+  <div class="divTableCell4">Match Bet Odd</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;legStatus:</div>
+  <div class="divTableCell2">null</div>
+  <div class="divTableCell4">Match/Leg Validation</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8964;2:</div>
+  <div class="divTableCell2">&nbsp;</div>
+  <div class="divTableCell4">Match #3</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;betRef:</div>
+  <div class="divTableCell2">""</div>
+  <div class="divTableCell4">Bet Ref</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;betTime:</div>
+  <div class="divTableCell3">"2023-01-20-18-00"</div>
+  <div class="divTableCell4">Match Date&Time Year-M-D H-M</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8964;competitionName:</div>
+  <div class="divTableCell3">" - Egypt - Premier League - Al Masry Club v Ghazl El Mahallah - UND"</div>
+  <div class="divTableCell4">Match - UND/WIN/LOS/</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;marketCode:</div>
+  <div class="divTableCell3">"CP - Full Time"</div>
+  <div class="divTableCell4">Match Market</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;marketLine:</div>
+  <div class="divTableCell2">null</div>
+  <div class="divTableCell4">Match Market Line</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodCode:</div>
+  <div class="divTableCell2">null</div>
+  <div class="divTableCell4">Match Period Code</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optionName:</div>
+  <div class="divTableCell3">"H"</div>
+  <div class="divTableCell4">Match Code ie. Home</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optionOdd:</div>
+  <div class="divTableCell3">"1.65"</div>
+  <div class="divTableCell4">Match Bet Odd</div>
+</div>
+<div class="divTableRow">
+  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;legStatus:</div>
+  <div class="divTableCell2">null</div>
+  <div class="divTableCell4">Match/Leg Validation</div>
+</div>
+</div>
+</div>
+
+
+</center>
+<br><br><br>
+<center> <p style="color:#FFF;">Coded with <span style="color:red">&#x2764;</span> by <a href="http://madeinmaurice.net"><b><span style="color:red">Made</span><span style="color:blue">In</span><span style="color:yellow">Maurice</span>.<span style="color:green">net</span> 🇲🇺</b></a></p></center>
+
+
+<center> <p> <a href="http://madeinmaurice.net/disclaimer"><b><span style="color:grey">TOS | PRIVACY | DISCLAIMER</span></b></a></p></center>
+
+
+
+
+
+
+</body>
+</html>
