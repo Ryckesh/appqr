@@ -87,6 +87,7 @@ function onScanSuccess(qrCodeMessage) {
     document.getElementById('result1').innerHTML = ' <span class="result">StevenhillsCode : <b>'+qrCodeMessage+'</b></span>  ' ;
     document.getElementById('result').innerHTML = ' <span class="result"><a href="https://jsoneditoronline.org/#left=url.https%3A%2F%2Fjsoneditoronline.herokuapp.com%2Fv1%2Fforwarder%2Furl%3Furl%3Dhttps%253A%252F%252Fwww.stevenhills.bet%252FWebApi%252FGetTicketStatus%253FTicketNumber%253D'+qrCodeMessage+'">Check "'+qrCodeMessage+'" Status</a> </span>  ' ;
     document.getElementById('query').value = ''+qrCodeMessage+'' ;
+    document.getElementsByClassName("result1")[1].click();
 }
 
 
