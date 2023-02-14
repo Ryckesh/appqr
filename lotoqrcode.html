@@ -73,6 +73,9 @@ text-decoration: underline;
     <div id="result1">FootyCode : </div>
     <br><br>
 		<div id="result" >Scan Or Check Result Here :</div>
+
+		<div id="loto1" >Loto1 Result Here :</div>
+
   </div>
 
 
@@ -88,6 +91,7 @@ function onScanSuccess(qrCodeMessage) {
     document.getElementById('result').innerHTML = ' <span class="result"><a href="https://jsoneditoronline.org/#left=url.https%3A%2F%2Fjsoneditoronline.herokuapp.com%2Fv1%2Fforwarder%2Furl%3Furl%3Dhttps%253A%252F%252Fwww.footy.mu%252FWebApi%252FGetTicketStatus%253FTicketNumber%253D'+qrCodeMessage+'">Check "'+qrCodeMessage+'" Status</a> </span>  ' ;
     document.getElementById('query').value = ''+qrCodeMessage+'' ;
 //    document.getElementsByClassName("result1")[1].click();
+    document.getElementById('result1').innerHTML = text.substr(0, 5);
 }
 
 function onScanError(errorMessage) {
