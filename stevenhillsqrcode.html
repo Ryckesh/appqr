@@ -64,11 +64,12 @@ text-decoration: underline;
 
 <div class="row1">
   <div class="col1">
-    <div style="width:100%;" id="reader"></div>
+    <div style="width:100%;" style="color:lime;" id="reader">'Allow Camera Permission <br> Setting>Apps>Permission'</div>
+        <div style="width:100%;" style="color:lime;" id="errorcam"></div>
   </div>
 
   <div class="col" style="padding:30px;">
-    <h4 style="color:#fff;">SCAN RESULT: </h4>
+    <h4 style="color:#fff;">SCAN RESULT : </h4>
     <br>
     <div id="result1">StevenhillsCode : </div>
     <br><br>
@@ -94,7 +95,7 @@ function onScanSuccess(qrCodeMessage) {
 
 
 function onScanError(errorMessage) {
-  //handle scan error
+  document.getElementById('errorcam').innerHTML = 'Allow Camera Permission <br> Setting>Apps>Permission' ;
 }
 
 //var html5QrcodeScanner = new Html5QrcodeScanner(
@@ -106,6 +107,9 @@ const qrCodeSuccessCallback = onScanSuccess;
 const config = { fps: 10, qrbox: 250 };
 
 html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+
+
+
 
 
 </script>
