@@ -257,19 +257,14 @@ function onScanError(errorMessage) {
   //handle scan error
 }
 
-const html5QrCodeScanner = new Html5QrcodeScanner("#reader");
-const qrCodeSuccessCallback = message => { /* handle success */ }
-const config = { fps: 10, qrbox: 250 };
 
 
 
+var html5QrcodeScanner = new Html5QrcodeScanner(
+   "reader", { fps: 10, qrbox: 250 });
+html5QrcodeScanner.render(onScanSuccess, onScanError);
 
-
-//var html5QrcodeScanner = new Html5QrcodeScanner(
-//    "reader", { fps: 10, qrbox: 250 });
-//html5QrcodeScanner.render(onScanSuccess, onScanError);
-
-html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+html5QrCodeScanner.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
 
 
 
