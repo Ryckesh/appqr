@@ -56,7 +56,7 @@ text-decoration: underline;
 
 <script src="html5-lotoqrcode.min.js"></script>
 
-<body style="background-color: #141941;">
+<body style="background-color: #1b409b;">
 
 <center><b><p style="color:#eb3837;"><img src="https://www.lottotech.mu/wp-content/uploads/2022/10/Group-6570@2x.png" width="140" height="90">&nbsp;  Ticket Status</img></p></b> </center><br>
 
@@ -70,13 +70,11 @@ text-decoration: underline;
   <div class="col" style="padding:30px;">
     <h4 style="color:#fff;">SCAN RESULT : </h4>
     <br>
-    <div id="result1">FootyCode : </div>
-    <br><br>
-		<div id="result" >Scan Or Check Result Here :</div>
 
 		<div id="lotnumber" class="result" >Lot Number :</div>
-
-		<div id="lottype" class="result" >Lot Type :</div>
+		<div id="tiragedate" class="result" >Tirage Date :</div>
+		<div id="tiragedraw" class="result" >Tirage Draw :</div>
+		<div id="dividend" class="result" >Dividend :</div>
 
   </div>
 
@@ -88,16 +86,171 @@ text-decoration: underline;
 <center>
 
 
+
 <script type="text/javascript">
 
-function onScanSuccess(qrCodeMessage) {
-    document.getElementById('result1').innerHTML = ' <span class="result">FootyCode : <b>'+qrCodeMessage+'</b></span>  ' ;
-    document.getElementById('result').innerHTML = ' <span class="result"><a href="https://jsoneditoronline.org/#left=url.https%3A%2F%2Fjsoneditoronline.herokuapp.com%2Fv1%2Fforwarder%2Furl%3Furl%3Dhttps%253A%252F%252Fwww.footy.mu%252FWebApi%252FGetTicketStatus%253FTicketNumber%253D'+qrCodeMessage+'">Check "'+qrCodeMessage+'" Status</a> </span>  ' ;
-    document.getElementById('query').value = ''+qrCodeMessage+'' ;
-//    document.getElementsByClassName("result1")[1].click();
-    document.getElementById("lotnumber").innerHTML = qrCodeMessage.substr(0, 6);
-    document.getElementById("lottype").innerHTML = qrCodeMessage.substr(6, 5);
 
+
+function onScanSuccess(qrCodeMessage) {
+    document.getElementById("lotnumber").innerHTML = qrCodeMessage.substr(0, 6);
+
+
+
+    let ele = document.getElementById('lotnumber');
+    let draw; let date; let dividend;
+
+      if (ele.innerHTML.includes('qqq'))  {
+        draw = "Not Apllicable"; date = "03 Aug, 2022";
+
+} else if (ele.innerHTML.includes('LOT'))  {
+          draw = "07 14 17 22 24 38"; date = "03 Aug, 2022";
+} else if (ele.innerHTML.includes('LOT'))  {
+          draw = "06 09 10 15 21 26"; date = "06 Aug, 2022";
+} else if (ele.innerHTML.includes('LOT'))  {
+          draw = "05 10 12 29 36 38"; date = "10 Aug, 2022";
+} else if (ele.innerHTML.includes('LOT'))  {
+          draw = "01 03 05 19 30 40"; date = "13 Aug, 2022";
+} else if (ele.innerHTML.includes('LOT'))  {
+          draw = "09 11 14 18 31 37"; date = "17 Aug, 2022";
+} else if (ele.innerHTML.includes('LOT'))  {
+          draw = "10 11 13 18 26 35"; date = "20 Aug, 2022";
+} else if (ele.innerHTML.includes('LOT'))  {
+          draw = "02 03 06 09 19 28"; date = "24 Aug, 2022";
+} else if (ele.innerHTML.includes('LOT'))  {
+          draw = "09 17 19 25 28 40"; date = "27 Aug, 2022";
+} else if (ele.innerHTML.includes('LOT'))  {
+          draw = "05 11 12 15 23 34"; date = "31 Aug, 2022";
+
+        } else if (ele.innerHTML.includes('LOT'))  {
+                  draw = "02 07 11 32 33 36"; date = "03 Sept, 2022";
+        } else if (ele.innerHTML.includes('LOT'))  {
+                  draw = "08 18 19 30 31 34"; date = "07 Sept, 2022";
+        } else if (ele.innerHTML.includes('LOT'))  {
+                  draw = "06 10 23 24 36 39"; date = "10 Sept, 2022";
+        } else if (ele.innerHTML.includes('LOT'))  {
+                  draw = "13 21 24 37 38 40"; date = "14 Sept, 2022";
+        } else if (ele.innerHTML.includes('LOT'))  {
+                  draw = "03 06 11 28 34 38"; date = "17 Sept, 2022";
+        } else if (ele.innerHTML.includes('LOT'))  {
+                  draw = "20 21 23 29 35 38"; date = "21 Sept, 2022";
+        } else if (ele.innerHTML.includes('LOT'))  {
+                  draw = "01 09 10 14 27 40"; date = "24 Sept, 2022";
+        } else if (ele.innerHTML.includes('LOT'))  {
+                  draw = "06 14 19 25 28 37"; date = "28 Sept, 2022";
+
+                } else if (ele.innerHTML.includes('LOT'))  {
+                          draw = "10 11 17 20 23 34"; date = "01 Oct, 2022";
+                } else if (ele.innerHTML.includes('LOT'))  {
+                          draw = "05 10 12 16 28 31"; date = "05 Oct, 2022";
+                } else if (ele.innerHTML.includes('LOT'))  {
+                          draw = "04 09 13 21 22 28"; date = "08 Oct, 2022";
+                } else if (ele.innerHTML.includes('LOT'))  {
+                          draw = "01 03 05 19 30 40"; date = "12 Oct, 2022";
+                } else if (ele.innerHTML.includes('LOT'))  {
+                          draw = "01 05 14 19 21 34"; date = "15 Oct, 2022";
+                } else if (ele.innerHTML.includes('LOT'))  {
+                          draw = "15 20 25 30 34 39"; date = "19 Oct, 2022";
+                } else if (ele.innerHTML.includes('LOT'))  {
+                          draw = "03 10 22 26 35 38"; date = "22 Oct, 2022";
+                } else if (ele.innerHTML.includes('LOT'))  {
+                          draw = "06 13 18 22 24 34"; date = "26 Oct, 2022";
+                } else if (ele.innerHTML.includes('LOT'))  {
+                          draw = "05 15 16 18 20 29"; date = "29 Oct, 2022";
+
+                        } else if (ele.innerHTML.includes('LOT'))  {
+                                  draw = "03 05 15 23 26 40"; date = "02 Nov, 2022";
+                        } else if (ele.innerHTML.includes('LOT'))  {
+                                  draw = "03 13 16 19 24 40"; date = "05 Nov, 2022";
+                        } else if (ele.innerHTML.includes('LOT'))  {
+                                  draw = "14 16 22 26 33 38"; date = "09 Nov, 2022";
+                        } else if (ele.innerHTML.includes('LOT'))  {
+                                  draw = "13 14 16 20 23 29"; date = "12 Nov, 2022";
+                        } else if (ele.innerHTML.includes('LOT'))  {
+                                  draw = "01 05 11 26 35 37"; date = "16 Nov, 2022";
+                        } else if (ele.innerHTML.includes('LOT'))  {
+                                  draw = "06 11 29 33 35 38"; date = "19 Nov, 2022";
+                        } else if (ele.innerHTML.includes('LOT'))  {
+                                  draw = "01 10 18 21 27 34"; date = "23 Nov, 2022";
+                        } else if (ele.innerHTML.includes('LOT'))  {
+                                  draw = "04 06 08 12 23 40"; date = "26 Nov, 2022";
+                        } else if (ele.innerHTML.includes('LOT'))  {
+                                  draw = "12 16 18 24 32 40"; date = "30 Nov, 2022";
+
+                                } else if (ele.innerHTML.includes('LOT'))  {
+                                          draw = "09 10 15 16 20 36"; date = "03 Dec, 2022";
+                                } else if (ele.innerHTML.includes('LOT'))  {
+                                          draw = "03 07 11 12 22 26"; date = "07 Dec, 2022";
+                                } else if (ele.innerHTML.includes('LOT'))  {
+                                          draw = "15 18 22 24 32 35"; date = "10 Dec, 2022";
+                                } else if (ele.innerHTML.includes('LOT'))  {
+                                          draw = "04 14 25 34 35 36"; date = "14 Dec, 2022";
+                                } else if (ele.innerHTML.includes('LOT'))  {
+                                          draw = "02 12 14 21 24 33"; date = "17 Dec, 2022";
+                                } else if (ele.innerHTML.includes('LOT'))  {
+                                          draw = "10 11 13 16 30 31"; date = "21 Dec, 2022";
+                                } else if (ele.innerHTML.includes('LOT'))  {
+                                          draw = "04 05 08 13 30 35"; date = "24 Dec, 2022";
+                                } else if (ele.innerHTML.includes('LOT'))  {
+                                          draw = "06 09 18 30 31 37"; date = "28 Dec, 2022";
+                                } else if (ele.innerHTML.includes('LOT'))  {
+                                          draw = "07 15 28 32 33 34"; date = "31 Dec, 2022";
+
+} else if (ele.innerHTML.includes('LOT'))  {
+          draw = "07 12 15 21 30 34"; date = "04 Jan, 2022";
+} else if (ele.innerHTML.includes('LOT'))  {
+          draw = "03 08 26 28 33 35"; date = "07 Jan, 2022";
+} else if (ele.innerHTML.includes('LOT'))  {
+          draw = "01 05 14 18 31 35"; date = "11 Jan, 2022";
+} else if (ele.innerHTML.includes('LOT'))  {
+          draw = "11 14 20 24 28 29"; date = "14 Jan, 2022";
+} else if (ele.innerHTML.includes('LOT'))  {
+          draw = "01 04 08 24 26 37"; date = "18 Jan, 2022";
+} else if (ele.innerHTML.includes('LOT'))  {
+          draw = "09 15 17 18 25 27"; date = "21 Jan, 2022";
+} else if (ele.innerHTML.includes('LOT'))  {
+          draw = "03 11 23 25 32 33"; date = "25 Jan, 2022";
+} else if (ele.innerHTML.includes('LOT'))  {
+          draw = "04 06 20 31 35 37"; date = "28 Jan, 2022";
+
+
+        } else if (ele.innerHTML.includes('LOT'))  {
+                  draw = "04 05 10 25 28 39"; date = "01 Jan, 2022";
+        } else if (ele.innerHTML.includes('LOT'))  {
+                  draw = "01 14 21 22 23 37"; date = "04 Jan, 2022";
+        } else if (ele.innerHTML.includes('K72-46'))  {
+                  draw = "12 17 18 29 35 40"; date = "08 Jan, 2022"; dividendid = " No Jackpot winners<br>Division ---	Winners ---	Winnings<br>6 of 6 ---	0 ---	Rs 0.00<br>5 of 6 ---	33 ---	Rs 12,917.00<br>4 of 6 ---	1362 ---	Rs 645.00<br>3 of 6 ---	22525 ---	Rs 100.00<br>Total ---	23920 ---	Rs 3,557,251.00";
+        } else if (ele.innerHTML.includes('K72-461'))  {
+                  draw = "05 09 16 17 22 28"; date = "11 Jan, 2022"; dividendid = "No Jackpot winners <br>Division ---	Winners ---	Winnings <br>6 of 6 ---	0 ---	Rs 0.00 <br>5 of 6 ---	85 ---	Rs 6,398.00 <br>4 of 6 ---	2804 ---	Rs 400.00<br>3 of 6 ---	39401 ---	Rs 100.00<br>Total ---	42290 ---	Rs 5,605,530.00";
+        } else if (ele.innerHTML.includes('K72-461'))  {
+                  draw = "12 15 21 33 34 39"; date = "15 Jan, 2022"; dividendid = "No Jackpot Winners <br> Division --- Winners --- Winnings <br> 6 of 6 ---	0 ---- Rs 0.00 <br> 5 of 6 ---	28 ---	Rs 19,019.00 <br> 4 of 6 ---	1547 ---	Rs 710.00 <br> 3 of 6 --- 23586 ---	Rs 100.00  <br> Total --- 25161 ---	Rs 3,989,502.00";
+        } else if (ele.innerHTML.includes('LOT'))  {
+                  draw = "00 00 00 00 00 00"; date = "18 Jan, 2022";
+        } else if (ele.innerHTML.includes('LOT'))  {
+                  draw = "00 00 00 00 00 00"; date = "22 Jan, 2022";
+        } else if (ele.innerHTML.includes('K72-461'))  {
+                  draw = "00 00 00 00 00 00"; date = "25 Jan, 2022"; dividendid = "";
+
+
+
+
+
+
+
+
+
+
+      } else {
+        draw = "Result Not In Database Yet"; date = "N/A"; dividendid = "N/A";
+
+
+
+
+      }
+
+
+    document.getElementById("tiragedraw").innerHTML = draw;
+    document.getElementById("tiragedate").innerHTML = date;
+    document.getElementById("dividend").innerHTML = dividendid;
 }
 
 function onScanError(errorMessage) {
@@ -108,340 +261,21 @@ var html5QrcodeScanner = new Html5QrcodeScanner(
     "reader", { fps: 10, qrbox: 250 });
 html5QrcodeScanner.render(onScanSuccess, onScanError);
 
+html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+
+
+
 </script>
 
 
 
 
 
-<center>
-<form  role="search" id="form">
-  <input class="result1" type="search" id="query" name="q" placeholder="Ticket#" aria-label="TicketStatus" oninput="myFunction()" required/>
-  <button class="result1">
-    <b>Check Status</b>
-  </button>
-</form>
-</center>
-
-
-<script>
-  const f = document.getElementById('form');
-  const q = document.getElementById('query');
-  const stevenhills = 'https://jsoneditoronline.org/#left=url.https%3A%2F%2Fjsoneditoronline.herokuapp.com%2Fv1%2Fforwarder%2Furl%3Furl%3Dhttps%253A%252F%252Fwww.footy.mu%252FWebApi%252FGetTicketStatus%253FTicketNumber%253D';
-  const site = '';
-
-  function submitted(event) {
-    event.preventDefault();
-    const url = stevenhills + q.value;
-    const win = window.open(url, '_self');
-    win.focus();
-  }
-
-  f.addEventListener('submit', submitted);
-</script>
-
-
-<br><br>
-<center><h5 style="color:#fff;">Any ticket number requested through this application is neither stored nor read by any third party other than JSON Editor Online.</h5></center>
-<center><h4 style="color:#fff;"> Sample Request Explained: </h4></center>
-
-<div class="divTable" style="width: 10%;border: 0px solid #fff;" >
-<div class="divTableBody">
-<div class="divTableRow">
-<div class="divTableCell5">text</div>
-<div class="divTableCell6">tree</div>
-<div class="divTableCell5">table</div>
-</div>
-</div>
-</div>
 
 <br>
-
-<style>
-  .divTable{
-	display: table;
-	width: 100%;
-  text-align: left;
-}
-.divTableRow {
-	display: table-row;
-}
-.divTableHeading {
-	background-color: #EEE;
-	display: table-header-group;
-}
-.divTableCell, .divTableHead {
-	border: 0px solid #ffffff;
-	display: table-cell;
-	padding: 3px 10px;
-  color: #0a81bd
-}
-.divTableCell2, .divTableHead {
-	border: 0px solid #0a81bd;
-	display: table-cell;
-	padding: 3px 10px;
-  color: #b7199d
-}
-.divTableCell3, .divTableHead {
-	border: 0px solid #0a81bd;
-	display: table-cell;
-	padding: 3px 10px;
-  color: #00FF00
-}
-.divTableCell4, .divTableHead {
-	border: 0px solid #0a81bd;
-	display: table-cell;
-	padding: 3px 10px;
-  color: #ffffff
-}
-.divTableCell5, .divTableHead {
-	border: 1px solid #fff;
-	display: table-cell;
-	padding: 3px 10px;
-  color: #ffffff
-}
-.divTableCell6, .divTableHead {
-	border: 1px solid #fff;
-	display: table-cell;
-	padding: 3px 10px;
-  color: #004e77
-}
-.divTableCell6 {
-  background-color: #fff
-}
-.divTableHeading {
-	background-color: #EEE;
-	display: table-header-group;
-	font-weight: bold;
-}
-.divTableFoot {
-	background-color: #EEE;
-	display: table-footer-group;
-	font-weight: bold;
-}
-.divTableBody {
-	display: table-row-group;
-}
-</style>
+<center><h5 style="color:#fff;">Any ticket number requested through this application is neither stored nor read by any third party. Note: Ticket scannable 6 month from date of draw.</h5></center>
 
 
-<div class="divTable" style="width: 100%;" >
-<div class="divTableBody">
-<div class="divTableRow">
-<div class="divTableCell">&nbsp;  isSuccess:</div>
-<div class="divTableCell3">true</div>
-<div class="divTableCell4">Request?</div>
-</div>
-<div class="divTableRow">
-<div class="divTableCell">&#8964;transaction</div>
-<div class="divTableCell2">&nbsp;</div>
-<div class="divTableCell4">Betslip Details Follow</div>
-</div>
-<div class="divTableRow">
-<div class="divTableCell">&nbsp;&nbsp;&nbsp; bookingDate:</div>
-<div class="divTableCell3">"2023-01-20-16-22"</div>
-<div class="divTableCell4">Bet Date&Time Year-M-D H-M</div>
-</div>
-<div class="divTableRow">
-<div class="divTableCell">&nbsp;&nbsp;&nbsp; bookingRef:</div>
-<div class="divTableCell3">"K8C-4706596"</div>
-<div class="divTableCell4">Ticket #</div>
-</div>
-<div class="divTableRow">
-<div class="divTableCell">&nbsp;&nbsp;&nbsp; proxyRef:</div>
-<div class="divTableCell2">null</div>
-<div class="divTableCell4">Teller Name /Private</div>
-</div>
-<div class="divTableRow">
-<div class="divTableCell">&nbsp;&nbsp;&nbsp; amount:</div>
-<div class="divTableCell2">""</div>
-<div class="divTableCell4">Bet Stake /Private</div>
-</div>
-<div class="divTableRow">
-<div class="divTableCell">&nbsp;&nbsp;&nbsp; status:</div>
-<div class="divTableCell3">"UNDECIDED"</div>
-<div class="divTableCell4">Result : UNDECIDED/WINNER/LOSER</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp; betPrice:</div>
-  <div class="divTableCell2">null</div>
-  <div class="divTableCell4">Bet Stake After Tax /Private</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp; potentialPayout:</div>
-  <div class="divTableCell2">"NA"</div>
-  <div class="divTableCell4">Payout As Per Stake /Private</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp; cashBackAmount:</div>
-  <div class="divTableCell2">null</div>
-  <div class="divTableCell4">Return Stake Incase Of Void /Private</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp; errorMessage:</div>
-  <div class="divTableCell2">null</div>
-  <div class="divTableCell4">Error Message If Any</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&#8964;bets:[3 items]</div>
-  <div class="divTableCell2">&nbsp;</div>
-  <div class="divTableCell4"># Of Matches/Legs</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8964;0:</div>
-  <div class="divTableCell2">&nbsp;</div>
-  <div class="divTableCell4">Match #1</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;betRef:</div>
-  <div class="divTableCell2">""</div>
-  <div class="divTableCell4">Bet Ref</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;betTime:</div>
-  <div class="divTableCell3">"2023-01-20-18-00"</div>
-  <div class="divTableCell4">Match Date&Time Year-M-D H-M</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8964;competitionName:</div>
-  <div class="divTableCell3">" - India - Indian Super League - SC East Bengal v Hyderabad FC - WIN"</div>
-  <div class="divTableCell4">Match - UND/WIN/LOST/</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;marketCode:</div>
-  <div class="divTableCell3">"CP - Full Time"</div>
-  <div class="divTableCell4">Match Market</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;marketLine:</div>
-  <div class="divTableCell2">null</div>
-  <div class="divTableCell4">Match Market Line</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodCode:</div>
-  <div class="divTableCell2">null</div>
-  <div class="divTableCell4">Match Period Code</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optionName:</div>
-  <div class="divTableCell3">"A"</div>
-  <div class="divTableCell4">Match Code ie. Away</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optionOdd:</div>
-  <div class="divTableCell3">"1.55"</div>
-  <div class="divTableCell4">Match Bet Odd</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;legStatus:</div>
-  <div class="divTableCell2">null</div>
-  <div class="divTableCell4">Match/Leg Validation</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8964;1:</div>
-  <div class="divTableCell2">&nbsp;</div>
-  <div class="divTableCell4">Match #2</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;betRef:</div>
-  <div class="divTableCell2">""</div>
-  <div class="divTableCell4">Bet Ref</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;betTime:</div>
-  <div class="divTableCell3">"2023-01-20-18-00"</div>
-  <div class="divTableCell4">Match Date&Time Year-M-D H-M</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8964;competitionName:</div>
-  <div class="divTableCell3">" - Iran - Pro League - Sanat Naft Abadan FC v Foolad Khuzestan FC - LOS"</div>
-  <div class="divTableCell4">Match - UND/WIN/LOS/</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;marketCode:</div>
-  <div class="divTableCell3">"CP - Full Time"</div>
-  <div class="divTableCell4">Match Market</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;marketLine:</div>
-  <div class="divTableCell2">null</div>
-  <div class="divTableCell4">Match Market Line</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodCode:</div>
-  <div class="divTableCell2">null</div>
-  <div class="divTableCell4">Match Period Code</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optionName:</div>
-  <div class="divTableCell3">"A"</div>
-  <div class="divTableCell4">Match Code ie. Away</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optionOdd:</div>
-  <div class="divTableCell3">"2.25"</div>
-  <div class="divTableCell4">Match Bet Odd</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;legStatus:</div>
-  <div class="divTableCell2">null</div>
-  <div class="divTableCell4">Match/Leg Validation</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8964;2:</div>
-  <div class="divTableCell2">&nbsp;</div>
-  <div class="divTableCell4">Match #3</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;betRef:</div>
-  <div class="divTableCell2">""</div>
-  <div class="divTableCell4">Bet Ref</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;betTime:</div>
-  <div class="divTableCell3">"2023-01-20-18-00"</div>
-  <div class="divTableCell4">Match Date&Time Year-M-D H-M</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8964;competitionName:</div>
-  <div class="divTableCell3">" - Egypt - Premier League - Al Masry Club v Ghazl El Mahallah - UND"</div>
-  <div class="divTableCell4">Match - UND/WIN/LOS/</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;marketCode:</div>
-  <div class="divTableCell3">"CP - Full Time"</div>
-  <div class="divTableCell4">Match Market</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;marketLine:</div>
-  <div class="divTableCell2">null</div>
-  <div class="divTableCell4">Match Market Line</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodCode:</div>
-  <div class="divTableCell2">null</div>
-  <div class="divTableCell4">Match Period Code</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optionName:</div>
-  <div class="divTableCell3">"H"</div>
-  <div class="divTableCell4">Match Code ie. Home</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optionOdd:</div>
-  <div class="divTableCell3">"1.65"</div>
-  <div class="divTableCell4">Match Bet Odd</div>
-</div>
-<div class="divTableRow">
-  <div class="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;legStatus:</div>
-  <div class="divTableCell2">null</div>
-  <div class="divTableCell4">Match/Leg Validation</div>
-</div>
-</div>
-</div>
-
-
-</center>
 <br><br><br>
 <center> <p style="color:#FFF;">Coded with <span style="color:red">&#x2764;</span> by <a href="http://madeinmaurice.net"><b><span style="color:red">Made</span><span style="color:blue">In</span><span style="color:yellow">Maurice</span>.<span style="color:green">net</span> 🇲🇺</b></a></p></center>
 
