@@ -67,7 +67,7 @@ text-decoration: underline;
     <div style="width:100%;" id="reader"></div>
   </div>
 
-  <div style="width:100%;" id="errorcam"><p style="color:lime;">'Allow Camera Permission If Not Yet<br> Setting>Apps>Permission'</p></div>
+  <div style="width:100%;" id="errorcam"></div>
 
   <div class="col" style="padding:30px;">
     <h4 style="color:#fff;">SCAN RESULT : </h4>
@@ -107,6 +107,7 @@ const html5QrCode = new Html5Qrcode("reader");
 const qrCodeSuccessCallback = onScanSuccess;
 const config = { fps: 10, qrbox: 250 };
 
+document.getElementById('errorcam').innerHTML = "Allow Camera Permission If Not Yet<br> Setting>Apps>Permission";
 html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
 document.getElementById('errorcam').innerHTML = "";
 
