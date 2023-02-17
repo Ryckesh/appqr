@@ -95,7 +95,7 @@ text-decoration: underline;
 
 
 function onScanSuccess(qrCodeMessage) {
-    document.getElementById("lotnumber").innerHTML = qrCodeMessage.substr(0, 6);
+    document.getElementById("lotnumber").innerHTML = +qrCodeMessage+;
 
 
 
@@ -108,7 +108,7 @@ function onScanSuccess(qrCodeMessage) {
 } else if (ele.innerHTML.includes('3AUG2022'))  {
           draw = "07 14 17 22 24 38"; date = "03 Aug, 2022"; dividendid = " No Jackpot winners<br>Division ---	Winners ---	Winnings<br>6 of 6 ---	0 ---	Rs 0.00<br>5 of 6 ---	124 ---	Rs 8,339.00<br>4 of 6 ---	4817 ---	Rs 443.00<br>3 of 6 ---	67194 ---	Rs 100.00<br>Total ---	72135 ---	Rs 9,887,367.00";
 } else if (ele.innerHTML.includes('6AUG2022'))  {
-          draw = "06 09 10 15 21 26"; date = "06 Aug, 2022"; dividendid = "";
+          draw = "06 09 10 15 21 26"; date = "06 Aug, 2022"; dividendid = " No Jackpot winners<br>Division ---	Winners ---	Winnings<br>6 of 6 ---	0 ---	Rs 0.00<br>5 of 6 ---	155 ---	Rs 8,383.00<br>4 of 6 ---	6290 ---	Rs 426.00<br>3 of 6 ---	90780 ---	Rs 100.00<br>Total ---	97225 ---	Rs 13,056,905.00";
 } else if (ele.innerHTML.includes('10AUG2022'))  {
           draw = "05 10 12 29 36 38"; date = "10 Aug, 2022"; dividendid = "";
 } else if (ele.innerHTML.includes('13AUG2022'))  {
