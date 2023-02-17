@@ -263,7 +263,7 @@ const html5QrCode = new Html5Qrcode("reader");
 const qrCodeSuccessCallback = message => { /* handle success */ }
 const config = { fps: 10, qrbox: 250 };
 
-html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+html5QrCode.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
 
 </script>
 
