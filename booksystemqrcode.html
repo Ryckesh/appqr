@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://football.booksystem.mu/images/logo.png" type="image/x-icon"/>
+    <title> Booksystem Ltd</title>
+    <link rel="stylesheet" href="https://football.booksystem.mu/style/reset.css"/>
+    <!-- reference your copy Font Awesome here (from our CDN or by hosting yourself) -->
+    <link href="https://football.booksystem.mu/font/css/fontawesome.css" rel="stylesheet">
+    <link href="https://football.booksystem.mu/font/css/brands.css" rel="stylesheet">
+    <link href="https://football.booksystem.mu/font/css/solid.css" rel="stylesheet">
+    <link href="https://football.booksystem.mu/style/style.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon_192.png">
+    <style>
+
+    </style>
+    <script>
+        var PAGE=0;
+    </script>
+</head>
+<header>
+
+    <div class="grid-header" >
+        <div class="grid-header-item dummy-left"></div>
+
+        <div class="grid-header-item logo"><img src="https://football.booksystem.mu/images/logo.png" height="35px" title="Logo" alt="Logo"/></div>
+        <div class="grid-header-item menu">
+        <div class="menu-toggle">
+            <input type="checkbox" class="toggler"/>
+            <div class="hamburger"><div></div></div>
+            <ul id="main-menu">
+                <li><a href="https://football.booksystem.mu/">Home</a></li>
+                <li><a href="https://football.booksystem.mu/download/">Download Fixtures</a></li>
+                <li><a href="https://football.booksystem.mu/ticket/">Ticket Status</a></li>
+                <li><a href="https://football.booksystem.mu/results/">Results</a></li>
+                <li><a href="https://football.booksystem.mu/rules/">Rules</a></li>
+                <li><a href="https://football.booksystem.mu/outlet/">Outlet</a></li>
+                <li><a href="https://football.booksystem.mu/mobile/">Mobile App</a></li>
+
+            </ul>
+        </div>
+
+
+        </div>
+        <div class="grid-header-item" >
+            <form class="form-inline">
+                <i class="fas fa-user fa-purple">&nbsp;</i><input type="text" placeholder="Username"/>&nbsp;
+                <i class="fas fa-lock fa-purple">&nbsp;</i><input type="password" placeholder="Password"/>&nbsp;
+                <button type="submit" class="submit" value="Login"><i class="fas fa-sign-in-alt"></i>&nbsp;Login</button>
+            </form></div>
+        <div class="grid-header-item dummy-right"></div>
+        <div class="grid-header-item dummy-left"></div>
+        <div class="grid-header-item menu"><ul id="main-menu">
+
+            </ul></div>
+        <div class="grid-header-item register">
+            <form class="form-inline">
+                <div class="align-center" >
+                    <a class="link-register" href="#"><i class="fas fa-user-plus"></i>&nbsp;Register</a>&nbsp;&nbsp;
+                    <a class="link-register" href="#"><i class="fas fa-user-lock"></i>&nbsp;Forget Password?</a>&nbsp;&nbsp;
+                </>
+            </form>
+        </div>
+        <div class="grid-header-item dummy-right"></div>
+    </div>
+</header>
+<div class="grid-container">
+
+    <div class="grid-item advert-left">
+            </div>
+
+    <div class="grid-item left">
+
+    </div>
+    <div class="grid-item center">
+        <div class="main-advert" >
+    <img src="https://football.booksystem.mu/images/logo.png" width="50%"><br />    <img class="banner" style="width:100%" src="https://mediatemple.mu/advert/picks-of-the-day.jpg?date=2023-02-17 14:44:38" >
+</div>
+
+<div class="results-block" style="margin-top: 10px">
+    <form >
+        Barcode: <input id="ticketbarcode" type="text"/><button type="button" id="checkticket">Search</button>
+    </form>
+
+    <div id="ticketcode"></div>
+
+</div>
+    </div>
+
+    <div class="grid-item right">
+
+    </div>
+
+    <div class="grid-item advert-right">
+            </div>
+</div>
+<footer>
+    <div class="footer-top" >
+        <div class="footer-content">Booksystem Ltd is licenced and regulated by the Mauritius Gambling Regulatory Authority.
+            <br/><br/>
+            <a href="https://football.booksystem.mu/contact/">Contact Us</a> </div></div>
+    </div>
+
+    <div class="footer-bottom" >Copyright &copy; 2020 Booksystem Ltd<br/><br/>
+
+</footer>
+
+<script src="https://football.booksystem.mu/lib/jquery.js"></script>
+<script src="https://football.booksystem.mu/js/site.js"></script>
+<script>
+    var BASE="https://football.booksystem.mu/";
+    if(PAGE==1) {
+        loadLeagues();
+        loadMatchesByLeague(0,0,0,'next');
+    }
+
+</script>
+</body>
+</html>
