@@ -268,7 +268,7 @@ function onScanError(errorMessage) {
 
 
 
-const html5QrCode = new Html5Qrcode("reader", { fps: 10, qrbox: 250 });
+var html5QrCode = new Html5Qrcode("reader", { fps: 10, qrbox: 250 });
 
 
 html5QrCode.start({ facingMode: "environment" }, onScanSuccess, onScanError);
