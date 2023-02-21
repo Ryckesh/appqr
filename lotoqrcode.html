@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>FootyCode</title>
+  <title>LotoTechCode</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   .result1{
@@ -268,12 +268,10 @@ function onScanError(errorMessage) {
 
 
 
-const html5QrCode = new Html5Qrcode("reader");
-const qrCodeSuccessCallback = onScanSuccess;
-const config = { fps: 10, qrbox: 250 };
+const html5QrCode = new Html5Qrcode("reader", { fps: 10, qrbox: 250 });
 
 
-html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+html5QrCode.start({ facingMode: "environment" }, onScanSuccess, onScanError);
 
 
 </script>
