@@ -292,14 +292,14 @@ function filescan() {
   var html5QrcodeScanner = new Html5QrcodeScanner(
       "reader2", { fps: 10, qrbox: 250 });
   html5QrcodeScanner.render(onScanSuccess, onScanError);
-  document.getElementById("errorcam").innerHTML ='<br>';
+  const elementfilescanbutton = document.getElementById("buttonscan");
+  elementfilescanbutton.remove();
 }
 </script>
 
 <script>
 setTimeout(function() {
-  const element = document.getElementById("errorcam");
-  element.remove();
+  document.getElementById("errorcam").innerHTML ='<br>';
 }, 3000);
 
 </script>
