@@ -292,8 +292,7 @@ function filescan() {
   var html5QrcodeScanner = new Html5QrcodeScanner(
       "reader2", { fps: 10, qrbox: 250 });
   html5QrcodeScanner.render(onScanSuccess, onScanError);
-  const elementfilescanbutton = document.getElementById("buttonscan");
-  elementfilescanbutton.remove();
+  document.getElementById("errorcam").innerHTML ='<br>';
 }
 </script>
 
