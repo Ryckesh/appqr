@@ -268,10 +268,11 @@ function onScanError(errorMessage) {
 
 
 
-var html5QrCode = new Html5Qrcode("reader", { fps: 10, qrbox: 250 });
+const html5QrCode = new Html5Qrcode("reader");
+const qrCodeSuccessCallback = onScanSuccess;
+const config = { fps: 10, qrbox: 250 };
 
-
-html5QrCode.start({ facingMode: "environment" }, onScanSuccess, onScanError);
+html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
 
 
 </script>
