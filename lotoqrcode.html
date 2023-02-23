@@ -4,8 +4,6 @@
 <head>
   <title>LotoTechCode</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
-  <META HTTP-EQUIV="Expires" CONTENT="-1">
 <style>
   .result1{
     background-color: #004e77;
@@ -348,7 +346,19 @@ setTimeout(function() {
 <center> <p> <a href="http://madeinmaurice.net/disclaimer"><b><span style="color:grey">TOS | PRIVACY | DISCLAIMER</span></b></a></p></center>
 
 
+<script type="text/javascript">
+$(document).ready(function(){
+    //Check if the current URL contains '#'
+    if(document.URL.indexOf("#")==-1){
+        // Set the URL to whatever it was plus "#".
+        url = document.URL+"#";
+        location = "#";
 
+        //Reload the page
+        location.reload(true);
+    }
+});
+</script>
 
 
 
