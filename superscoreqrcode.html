@@ -4,6 +4,30 @@
 <head>
   <title>SuperscoreCode</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script type='text/javascript'>
+
+          // JavaScript anonymous function
+          (() => {
+              if (window.localStorage) {
+
+                  // If there is no item as 'reload'
+                  // in localstorage then create one &
+                  // reload the page
+                  if (!localStorage.getItem('reload')) {
+                      localStorage['reload'] = true;
+                      window.location.reload();
+                  } else {
+
+                      // If there exists a 'reload' item
+                      // then clear the 'reload' item in
+                      // local storage
+                      localStorage.removeItem('reload');
+                  }
+              }
+          })(); // Calling anonymous function here only
+      </script>
+
 <style>
   .result1{
     background-color: #004e77;
