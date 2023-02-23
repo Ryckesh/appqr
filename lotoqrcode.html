@@ -346,21 +346,16 @@ setTimeout(function() {
 <center> <p> <a href="http://madeinmaurice.net/disclaimer"><b><span style="color:grey">TOS | PRIVACY | DISCLAIMER</span></b></a></p></center>
 
 
-<script type="text/javascript">
-$(document).ready(function(){
-    //Check if the current URL contains '#'
-    if(document.URL.indexOf("#")==-1){
-        // Set the URL to whatever it was plus "#".
-        url = document.URL+"#";
-        location = "#";
-
-        //Reload the page
-        location.reload(true);
-    }
-});
-</script>
 
 
 
 </body>
+
+<script type="text/javascript">
+if (location.href.indexOf('reload')==-1)
+{
+   location.href=location.href+'?reload';
+}
+</script>
+
 </html>
