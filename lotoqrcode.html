@@ -352,9 +352,11 @@ setTimeout(function() {
 </body>
 
 <script type="text/javascript">
-if (location.href.indexOf('reload')==-1)
-{
-   location.href=location.href+'?reload';
+var refresh = window.localStorage.getItem('refresh');
+console.log(refresh);
+if (refresh===null){
+    window.location.reload();
+    window.localStorage.setItem('refresh', "1");
 }
 </script>
 
