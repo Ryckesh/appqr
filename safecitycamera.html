@@ -83,7 +83,11 @@ text-decoration: underline;
 
 </style>
 
-
+<script type="text/javascript">
+setTimeout(function() {
+    document.getElementById('speak').onclick();
+}, 5000);
+</script>
 
 </head>
 
@@ -199,18 +203,7 @@ $(function(){
 </script>
 
 
-<script type="text/javascript">
 
-  getLocation();
-
-</script>
-
-<script type="text/javascript">
-function clickTheLink() {
-  var a = document.getElementById('speak');
-  a[1].click();
-}
-</script>
 
 
 
@@ -249,7 +242,11 @@ function showError(error) {
 </script>
 
 
+<script type="text/javascript">
 
+  getLocation();
+
+</script>
 
 
 
