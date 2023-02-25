@@ -99,12 +99,11 @@ text-decoration: underline;
   </div>
 </center>
 
-<center><p id="demo"></p></center>
 
-<p id="demo"></p>
+
 
 <script>
-var x = document.getElementById("demo");
+var x = document.getElementById("message");
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -177,8 +176,8 @@ getLocation();
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <textarea id="message" class="materialize-textarea"></textarea>
-        <label>Write message</label>
+        <div id="message" class="materialize-textarea"></div>
+        <label>Message</label>
       </div>
     </div>
     <a href="#" id="speak" class="waves-effect waves-light btn">Speak</a>
