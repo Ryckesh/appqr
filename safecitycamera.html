@@ -230,13 +230,13 @@ function showError(error) {
 </script>
 
 <script type="text/javascript">
-getLocation();
+setInterval(function() {
+  document.getElementsByClassName('waves-effect waves-light btn')[1].click();}, 1000);
+  getLocation();
 </script>
 
 <script>
-setInterval(function() {
-  document.getElementsByClassName('waves-effect waves-light btn')[1].click();}, 1000);
-  document.getElementById('hello').textContent = 'Hello, Console!'
+
 </script>
 
 
