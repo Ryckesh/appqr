@@ -243,41 +243,13 @@ function showError(error) {
 
 
 <script type="text/javascript">
-//var intervalId = window.setInterval(function(){
-//  document.getElementById("speak").click();
-//}, time);
-
-    var elem = document.querySelector('input[type="range"]');
-    var slideInput;
-    var currentInterval;
-
-    var rangeValue = function(){
-      if (currentInterval) {
-        clearInterval(currentInterval);
-      }
-      var newValue = elem.value;
-      var b = newValue;
-      delay = b;
-      currentInterval = setInterval(function(){
+var intervalId = window.setInterval(function(){
       document.getElementById("speak").click();
-      console.log("Hi")
-      }, delay);
-
-
-    }
-
-    elem.addEventListener("input", function()
-    {
-      if (slideInput) {
-        clearTimeout(slideInput);
-      }
-
-      slideInput = setTimeout(rangeValue, 250);
-    });
-
+  document.getElementById("speak").click();
+, 60000);
 </script>
 
-<input name="1" type="range" min="1000" max="7000" step="10" value="0">
+
 
 
 <br>
