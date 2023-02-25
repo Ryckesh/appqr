@@ -245,8 +245,14 @@ function showError(error) {
 
 
 <script type="text/javascript">
-var intervalId = window.setInterval(function(){
+(function loop() {
+   setTimeout(() => {
       document.getElementById("speak").click();, 5000);
+
+      loop();
+  }, 5000);
+})();
+
 </script>
 
 
