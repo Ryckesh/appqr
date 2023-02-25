@@ -237,12 +237,15 @@ function showError(error) {
 }
 </script>
 
+<script type="text/javascript">
+  getLocation();
+</script>
+
 
 <script type="text/javascript">
 var intervalId = window.setInterval(function(){
-  getLocation();
   document.getElementById("speak").click();
-}, 5000);
+}, 10000);
 </script>
 
 
