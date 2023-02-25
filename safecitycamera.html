@@ -94,27 +94,29 @@ text-decoration: underline;
 <center>
   <div>
 
-    <div style="width:100%;" id="errorcam"><p style="color:lime;"> 'Allow Camera Permission If Not Yet <br> Setting>Apps>Permission' </p></div>
+    <div style="width:100%;" id="errorcam"><p style="color:lime;"> 'Allow GeoLocation Permission If Not Yet <br> Setting>Apps>Permission' </p></div>
 
   </div>
 </center>
 
 <center><p id="demo"></p></center>
 
+<p id="demo"></p>
+
 <script>
 var x = document.getElementById("demo");
 
 function getLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(showPosition);
+    navigator.geolocation.watchPosition(showPosition, showError);
   } else {
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
 }
 
 function showPosition(position) {
-    x.innerHTML="Latitude: " + position.coords.latitude +
-    "<br>Longitude: " + position.coords.longitude;
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
 }
 
 function showError(error) {
