@@ -214,7 +214,7 @@ function showPosition(position) {
 function showError(error) {
   switch(error.code) {
     case error.PERMISSION_DENIED:
-      x.innerHTML = "User's Geolocation Turn Off!."
+      x.innerHTML = "User's Geolocation Turn Off!"
       break;
     case error.POSITION_UNAVAILABLE:
       x.innerHTML = "Location information is unavailable."
@@ -231,7 +231,7 @@ function showError(error) {
 
 <script>
 getLocation();
-document.getElementsById("speak")[1].click();
+document.getElementsById("speak")[0].click();
 </script>
 
 
