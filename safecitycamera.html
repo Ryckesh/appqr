@@ -243,12 +243,27 @@ function showError(error) {
 
 
 <script type="text/javascript">
-var intervalId = window.setInterval(function(){
-  document.getElementById("speak").click();
-}, 10000);
+//var intervalId = window.setInterval(function(){
+//  document.getElementById("speak").click();
+//}, time);
+
+var elem = document.querySelector('input[type="range"]');
+
+var timerId = null;
+
+var rangeValue = function(){
+  clearInterval(timerId);
+  var delay = elem.value;
+  timerId = setInterval(function(){
+    document.getElementById("speak").click();
+  }, delay);
+}
+
+elem.addEventListener("input", rangeValue);
+
 </script>
 
-
+<input name="1" type="range" min="5000" max="50000" step="10" value="0">
 
 
 <br>
