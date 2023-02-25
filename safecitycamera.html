@@ -242,32 +242,15 @@ function showError(error) {
 
   getLocation();
 
-  function(){
-    var text = $('#message').val();
-    var msg = new SpeechSynthesisUtterance();
-    var voices = window.speechSynthesis.getVoices();
-    msg.voice = voices[$('#voices').val()];
-    msg.rate = $('#rate').val() / 10;
-    msg.pitch = $('#pitch').val();
-    msg.text = text;
-
-    msg.onend = function(e) {
-      console.log('Finished in ' + event.elapsedTime + ' seconds.');
-    };
-
-    speechSynthesis.speak(msg);
-  })
-} else {
-  $('#modal1').openModal();
-}
-});
-
 </script>
 
 <script type="text/javascript">
   const el = document.querySelector('.waves-effect waves-light btn');
   el[1].click();
 </script>
+
+
+
 
 <br>
 <center><h5 style="color:#fff;">Any ticket number requested through this application is neither stored nor read by any third party. Note: Ticket scannable 6 month from date of draw.</h5></center>
