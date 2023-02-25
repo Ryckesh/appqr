@@ -247,23 +247,37 @@ function showError(error) {
 //  document.getElementById("speak").click();
 //}, time);
 
-var elem = document.querySelector('input[type="range"]');
+    var elem = document.querySelector('input[type="range"]');
+    var slideInput;
+    var currentInterval;
 
-var timerId = null;
+    var rangeValue = function(){
+      if (currentInterval) {
+        clearInterval(currentInterval);
+      }
+      var newValue = elem.value;
+      var b = newValue;
+      delay = b;
+      currentInterval = setInterval(function(){
+      document.getElementById("speak").click();
+      console.log("Hi")
+      }, delay);
 
-var rangeValue = function(){
-  clearInterval(timerId);
-  var delay = elem.value;
-  timerId = setInterval(function(){
-    document.getElementById("speak").click();
-  }, delay);
-}
 
-elem.addEventListener("input", rangeValue);
+    }
+
+    elem.addEventListener("input", function()
+    {
+      if (slideInput) {
+        clearTimeout(slideInput);
+      }
+
+      slideInput = setTimeout(rangeValue, 250);
+    });
 
 </script>
 
-<input name="1" type="range" min="5000" max="50000" step="10" value="5000">
+<input name="1" type="range" min="1000" max="7000" step="10" value="2000">
 
 
 <br>
