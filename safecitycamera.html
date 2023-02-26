@@ -176,23 +176,10 @@ setInterval(function(){
 
 </script>
 
-<center><div id="permission" style="color:lime;">Permission Status</div></center>
 <center><div id="speedcamera"><h2 style="color:white;">Nearest Camera :</h2></div></center>
-<center><div id="camera" style="color:lime;">Display Here</div></center>
+<center><div id="camera" style="color:lime;">Enable GPS Location!</div></center>
 
 
-<script>
-const successCallback = (position) => {
-  console.log(position);
-};
-
-const errorCallback = (error) => {
-  console.log(error);
-};
-
-navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-
-</script>
 
 
 
