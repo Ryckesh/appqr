@@ -176,12 +176,34 @@ setInterval(function(){
 
 </script>
 
+<center><div id="permission" style="color:lime;">Permission Status</div></center>
 <center><div id="speedcamera"><h2 style="color:white;">Nearest Camera :</h2></div></center>
 <center><div id="camera" style="color:lime;">Display Here</div></center>
 
 
+<script>
+function handlePermission() {
+  navigator.permissions.query({name:'geolocation'}).then(function(result) {
+    if (result.state == 'granted') {
+      report(result.state);
+    } else if (result.state == 'prompt') {
+      report(result.state);
+      navigator.geolocation.getCurrentPosition(revealPosition,positionDenied,geoSettings);
+    } else if (result.state == 'denied') {
+      report(result.state);
+    }
+    result.onchange = function() {
+      report(result.state);
+    }
+  });
+}
 
+function report(state) {
+  document.getElementById('permission').innerHTML = ('Permission ' + state);
+}
 
+handlePermission();
+</script>
 
 
 
