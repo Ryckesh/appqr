@@ -4,6 +4,7 @@
 <head>
   <title>Safe City Camera</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
   <script type='text/javascript'>
 
@@ -84,7 +85,6 @@ text-decoration: underline;
 </style>
 
 
-
 </head>
 
 <body style="background-color: #1b409b;">
@@ -101,203 +101,83 @@ text-decoration: underline;
 
 
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.95.1/css/materialize.min.css">
-
-<div class="container">
-  <div class="row">
-    <nav>
-      <div class="nav-wrapper">
-        <div class="col s12">
-          <a href="#" class="brand-logo">Speech Settings</a>
-        </div>
-      </div>
-    </nav>
-  </div>
-  <form class="col s8 offset-s2">
-    <div class="row">
-      <label>Choose voice</label>
-      <select id="voices"></select>
-    </div>
-    <div class="row">
-      <div class="col s6">
-        <label>Rate</label>
-        <p class="range-field">
-          <input type="range" id="rate" min="1" max="100" value="10" />
-        </p>
-      </div>
-      <div class="col s6">
-        <label>Pitch</label>
-        <p class="range-field">
-          <input type="range" id="pitch" min="0" max="2" value="1" />
-        </p>
-      </div>
-      <div class="col s12">
-        <p>N.B. Rate and Pitch only work with native voice.</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <textarea id="message" class="materialize-textarea">test</textarea>
-      </div>
-    </div>
-
-  </form>
-      <a href="#" id="speak" class="waves-effect waves-light btn">Speak</a>
-
-</div>
-
-
-
-<div id="modal1" class="modal">
-  <h4>Speech Synthesis not supported</h4>
-  <p>Your browser does not support speech synthesis.</p>
-  <p>We recommend you use Google Chrome.</p>
-  <div class="action-bar">
-    <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Close</a>
-  </div>
-</div>
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.95.1/js/materialize.min.js"></script>
-
-<script>
-$(function(){
-  if ('speechSynthesis' in window) {
-    speechSynthesis.onvoiceschanged = function() {
-      var $voicelist = $('#voices');
-
-      if($voicelist.find('option').length == 0) {
-        speechSynthesis.getVoices().forEach(function(voice, index) {
-          var $option = $('<option>')
-          .val(index)
-          .html(voice.name + (voice.default ? ' (default)' :''));
-
-          $voicelist.append($option);
-        });
-
-        $voicelist.material_select();
-      }
-    }
-
-    $('#speak').click(function(){
-      var text = $('#message').val();
-      var msg = new SpeechSynthesisUtterance();
-      var voices = window.speechSynthesis.getVoices();
-      msg.voice = voices[$('#voices').val()];
-      msg.rate = $('#rate').val() / 10;
-      msg.pitch = $('#pitch').val();
-      msg.text = text;
-
-      msg.onend = function(e) {
-        console.log('Finished in ' + event.elapsedTime + ' seconds.');
-      };
-
-      speechSynthesis.speak(msg);
-    })
-  } else {
-    $('#modal1').openModal();
-  }
-});
-</script>
-
-
-
 
 
 
 <script>
-var x = document.getElementById("message");
 
-function getLocation() {
+// Get User's Coordinate from their Browser
+window.onload = function() {
+  // HTML5/W3C Geolocation
   if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(showPosition, showError);
-  } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
+    navigator.geolocation.getCurrentPosition(UserLocation);
   }
+  // Default to Washington, DC
+  else
+    NearestCity(38.8951, -77.0367);
 }
 
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude;
+// Callback function for asynchronous call to HTML5 geolocation
+function UserLocation(position) {
+  NearestCity(position.coords.latitude, position.coords.longitude);
 }
 
-function showError(error) {
-  switch(error.code) {
-    case error.PERMISSION_DENIED:
-      x.innerHTML = "User's Geolocation Turn Off!"
-      break;
-    case error.POSITION_UNAVAILABLE:
-      x.innerHTML = "Location information is unavailable."
-      break;
-    case error.TIMEOUT:
-      x.innerHTML = "The request to get user location timed out."
-      break;
-    case error.UNKNOWN_ERROR:
-      x.innerHTML = "An unknown error occurred."
-      break;
+
+// Convert Degress to Radians
+function Deg2Rad(deg) {
+  return deg * Math.PI / 180;
+}
+
+function PythagorasEquirectangular(lat1, lon1, lat2, lon2) {
+  lat1 = Deg2Rad(lat1);
+  lat2 = Deg2Rad(lat2);
+  lon1 = Deg2Rad(lon1);
+  lon2 = Deg2Rad(lon2);
+  var R = 6371; // km
+  var x = (lon2 - lon1) * Math.cos((lat1 + lat2) / 2);
+  var y = (lat2 - lat1);
+  var d = Math.sqrt(x * x + y * y) * R;
+  return d;
+}
+
+var lat = 20; // user's latitude
+var lon = 40; // user's longitude
+
+var cities = [
+  ["Phoenix", 10, 50, "blah"],
+  ["Phoenix1", -20.2393125440585, 57.56713425525345, "blah"],
+  ["Home", -20.242017, 57.567788, "Speed Camera"],
+  ["city3", -20.24201901860385, 57.567900321897184, "Moved"],
+  ["city4", -20.251800756206347, 57.55870584026928, "blah"]
+];
+
+function NearestCity(latitude, longitude) {
+  var minDif = 1.5;
+  var closest;
+
+  for (index = 0; index < cities.length; ++index) {
+    var dif = PythagorasEquirectangular(latitude, longitude, cities[index][1], cities[index][2]);
+    if (dif < minDif) {
+      closest = index;
+      minDif = dif;
+    }
   }
+
+  // echo the nearest city
+  //alert(cities[closest]);
+  document.getElementById('camera').innerHTML = (cities[closest]);
 }
+
+
+setInterval(function(){
+    window.onload()
+}, 35000)
+
+
 </script>
 
-<script type="text/javascript">
-  getLocation();
-</script>
-
-
-<script type="text/javascript">
-//setInterval(function() {document.getElementById("speak").click();}, 35000);
-</script>
-
-
-
-
-
-
-
-<script>
-function CalculateDistance(lat1, long1, lat2, long2) {
-    // Translate to a distance
-    var distance =
-      Math.sin(lat1 * Math.PI) * Math.sin(lat2 * Math.PI) +
-      Math.cos(lat1 * Math.PI) * Math.cos(lat2 * Math.PI) * Math.cos(Math.abs(long1 - long2) * Math.PI);
-
-    // Return the distance in miles
-    //return Math.acos(distance) * 3958.754;
-
-    // Return the distance in meters
-    return Math.acos(distance) * 6370981.162;
-} // CalculateDistance
-
-// The target longitude and latitude
-var targetlong = 57.567;
-var targetlat = -20.242;
-
-// Start an interval every 1s
-var OurInterval = setInterval(OnInterval, 1000);
-
-// Call this on an interval
-function OnInterval() {
-  // Get the coordinates they are at
-  var lat = position.coords.latitude;
-  var long = position.coords.longitude;
-  var distance = CalculateDistance(targetlat, targetlong, lat, long);
-
-  // Is it in the right distance? (200m)
-  if (distance <= 2000) {
-    // Stop the interval
-    document.getElementById("demo").innerHTML = '<a href="https://www.lottotech.mu/";>Official Results @ https://www.lottotech.mu/</a>'
-
-    // Do something here cause they reached their destination
-  }
-}
-</script>
-
-
-<div id='demo'>here</div>
-
-
-
-
+<center><div id="speedcamera"><h2 style="color:white;">Nearest Camera :</h2></div></center>
+<center><div id="camera" style="color:lime;">Display Here</div></center>
 
 
 
