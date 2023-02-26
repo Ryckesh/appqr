@@ -94,13 +94,15 @@ text-decoration: underline;
 <center>
   <div>
 
-    <div style="width:100%;" id="errorcam"><p style="color:lime;"> 'Allow GeoLocation Permission If Not Yet <br> Setting>Apps>Permission' </p></div>
+    <div style="width:100%;" id="permissioninfo"><p style="color:lime;"> 'Allow GeoLocation Permission If Not Yet <br> Setting>Apps>Permission' </p></div>
 
   </div>
 </center>
 
 
-
+<center><div id="status"><h2 style="color:red;">GPS OFF !</h2></div></center>
+<center><div id="speedcamera"><h2 style="color:white;">Nearest Camera :</h2></div></center>
+<center><div id="camera" style="color:lime;">Enable GPS Location!</div></center>
 
 
 
@@ -166,47 +168,21 @@ function NearestCity(latitude, longitude) {
   // echo the nearest city
   //alert(cities[closest]);
   document.getElementById('camera').innerHTML = (cities[closest]);
-
+  document.getElementById('status').innerHTML = '<h2 style="color:lime;">GPS ON</h2>';
+  const elementpermissioninfo = document.getElementById("permissioninfo");
+  elementpermissioninfo.remove();
 }
-
-
-function getLocation() {
-  if (!navigator.geolocation) {
-    console.log('Geolocation API not supported by this browser.');
-  } else {
-    console.log('Checking location...');
-    navigator.geolocation.getCurrentPosition(success, error);
-  }
-}
-
-function success(position) {
-  document.getElementById('status').innerHTML = 'GPS ON';
-}
-
-function error() {
-  document.getElementById('status').innerHTML = 'GPS OFF';
-}
-
-function success(position) {
-  console.log('Latitude:', position.coords.latitude);
-  console.log('Longitude:', position.coords.longitude);
-}
-
-navigator.geolocation.watchPosition(success);
-
-
-
 
 
 setInterval(function(){
     window.onload()
-}, 10000)
+}, 30000)
 
 
 </script>
-<center><div id="status"><h2 style="color:lime;">GPS Status</h2></div></center>
-<center><div id="speedcamera"><h2 style="color:white;">Nearest Camera :</h2></div></center>
-<center><div id="camera" style="color:lime;">Enable GPS Location!</div></center>
+
+
+
 
 
 
