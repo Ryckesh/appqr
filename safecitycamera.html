@@ -167,10 +167,35 @@ function NearestCity(latitude, longitude) {
   //alert(cities[closest]);
   document.getElementById('camera').innerHTML = (cities[closest]);
 
-  else document.getElementById('camera').innerHTML = ' Enable GPS Location! ';
-
-
 }
+
+
+function getLocation() {
+  if (!navigator.geolocation) {
+    console.log('Geolocation API not supported by this browser.');
+  } else {
+    console.log('Checking location...');
+    navigator.geolocation.getCurrentPosition(success, error);
+  }
+}
+
+function success(position) {
+  document.getElementById('status').innerHTML = 'GPS ON';
+}
+
+function error() {
+  document.getElementById('status').innerHTML = 'GPS OFF';
+}
+
+function success(position) {
+  console.log('Latitude:', position.coords.latitude);
+  console.log('Longitude:', position.coords.longitude);
+}
+
+navigator.geolocation.watchPosition(success);
+
+
+
 
 
 setInterval(function(){
@@ -179,7 +204,7 @@ setInterval(function(){
 
 
 </script>
-
+<center><div id="status"><h2 style="color:white;">GPS Status</h2></div></center>
 <center><div id="speedcamera"><h2 style="color:white;">Nearest Camera :</h2></div></center>
 <center><div id="camera" style="color:lime;">Enable GPS Location!</div></center>
 
