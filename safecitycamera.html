@@ -104,6 +104,7 @@ text-decoration: underline;
 <center><div id="speedcamera"><h2 style="color:white;">Nearest Camera :</h2></div></center>
 <center><h4 style="color:white;"><div id="distance"></div>Km</h4></center>
 <center><h4 style="color:lime;" ><div id="camera">Enable GPS Location!</div></h4></center>
+<center><input id='notification' value='' onchange='playOnChange()'></input></center>
 
 
 
@@ -111,7 +112,10 @@ text-decoration: underline;
 
 var mp3_url = 'https://media.geeksforgeeks.org/wp-content/uploads/20190531135120/beep.mp3';
 
+function playOnChange() {
+    (new Audio(mp3_url)).play();
 
+}
 
 </script>
 
@@ -187,7 +191,8 @@ function NearestCity(latitude, longitude) {
   document.getElementById('camera').innerHTML = (cities[closest]);
   document.getElementById('status').innerHTML = '<h2 style="color:lime;">GPS ON</h2>';
   document.getElementById('distance').innerHTML = minDif.toFixed(3);
-  (new Audio(mp3_url)).play();
+
+  document.getElementById('notification').value = (cities[closest]);
   document.getElementById("permissioninfo").remove();
 
 }
