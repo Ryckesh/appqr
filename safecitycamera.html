@@ -102,9 +102,16 @@ text-decoration: underline;
 
 <center><div id="status"><h2 style="color:red;">GPS OFF !</h2></div></center>
 <center><div id="speedcamera"><h2 style="color:white;">Nearest Camera :</h2></div></center>
-<center><div id="camera" style="color:lime;">Enable GPS Location!</div></center>
+<center><h4 style="color:white;"><div id="distance"></div>Km</h4></center>
+<center><h4 style="color:lime;"><div id="camera">Enable GPS Location!</div></h4></center>
 
 
+<script>
+document.getElementById("camera").addEventListener("change", cameradetected );
+
+function cameradetected() { alert("hello"); }
+
+</script>
 
 <script>
 
@@ -146,12 +153,17 @@ var lat = 20; // user's latitude
 var lon = 40; // user's longitude
 
 var cities = [
-  ["Phoenix", -20.24200958152419, 57.56793519061144, "blah"],
+  ["Phoenix", 20.24200958152419, 57.57793519061144, "blah"],
   ["Phoenix1", -20.2393125440585, 57.56713425525345, "blah"],
   ["Home", -20.241983786836855, 57.56789696913621, "Speed Camera"],
-  ["city3", -20.24201901860385, 57.567900321897184, "Moved"],
+  ["city3", 20.24201901860385, 57.567900321897184, "Moved"],
   ["city4", -20.251800756206347, 57.55870584026928, "blah"]
 ];
+
+
+
+
+
 
 function NearestCity(latitude, longitude) {
   var minDif = 1.5;
@@ -169,14 +181,21 @@ function NearestCity(latitude, longitude) {
   //alert(cities[closest]);
   document.getElementById('camera').innerHTML = (cities[closest]);
   document.getElementById('status').innerHTML = '<h2 style="color:lime;">GPS ON</h2>';
-  const elementpermissioninfo = document.getElementById("permissioninfo");
-  elementpermissioninfo.remove();
+  document.getElementById("permissioninfo").remove();
+  document.getElementById('distance').innerHTML = minDif.toFixed(3);
+
 }
+
+
+
+
+
+
 
 
 setInterval(function(){
     window.onload()
-}, 15000)
+}, 35000)
 
 
 </script>
