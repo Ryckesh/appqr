@@ -107,10 +107,10 @@ text-decoration: underline;
 
 
 <script>
-$(document).ready(function(){
-var observer = new MutationObserver(function(e) {playOnChange();});
-observer.observe($('.noti')[0], {characterData: false, childList: true});
-});
+//$(document).ready(function(){
+//var observer = new MutationObserver(function(e) {playOnChange();});
+//observer.observe($('.noti')[0], {characterData: false, childList: true});
+//});
 
 var mp3_url = 'https://media.geeksforgeeks.org/wp-content/uploads/20190531135120/beep.mp3';
 
@@ -120,7 +120,30 @@ function playOnChange() {
 </script>
 
 
+<script>
 
+// Create mutation observer
+var observer = new MutationObserver(function(mutations) {
+
+    // Something has changed in the #select2-choices
+    playOnChange();
+
+});
+
+// Just look out for childList changes
+var config = {
+  attributes: false,
+  childList: true,
+  characterData: false
+};
+
+// Select target
+var target = document.querySelector('#camera');
+
+// Launch observer with above configuration
+observer.observe(target, config);
+
+</script>
 
 <script>
 
