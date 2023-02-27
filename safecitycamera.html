@@ -102,19 +102,16 @@ text-decoration: underline;
 
 <center><div id="status"><h2 style="color:red;">GPS OFF !</h2></div></center>
 <center><div id="speedcamera"><h2 style="color:white;">Nearest Camera :</h2></div></center>
-<center><h4 style="color:white;"><div id="distance"></div>Km</h4></center>
+<center><h1 style="color:white;"><div id="distance"></div>Km</h1></center>
 <center><h4 style="color:lime;" ><div id="camera" class='noti'>Enable GPS Location!</div></h4></center>
 
 
 <script>
 $(document).ready(function(){
 var observer = new MutationObserver(function(e) {playOnChange();});
-observer.observe($('.noti')[0], {characterData: true, childList: true});
+observer.observe($('.noti')[0], {characterData: false, childList: true});
 });
-</script>
 
-
-<script type="text/javascript">
 var mp3_url = 'https://media.geeksforgeeks.org/wp-content/uploads/20190531135120/beep.mp3';
 
 function playOnChange() {
