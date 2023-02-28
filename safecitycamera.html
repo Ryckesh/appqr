@@ -102,16 +102,16 @@ text-decoration: underline;
 
 <center><div id="status"><h2 style="color:red;">GPS OFF !</h2></div></center>
 <center><div id="speedcamera"><h2 style="color:white;">Nearest Camera :</h2></div></center>
-<center><h1 style="color:white;"><div id="distance"></div>Km</h1></center>
+<center><h1 style="color:white;">In<div id="distance"></div>Km</h1></center>
 <center><h4 style="color:lime;" ><div id="camera" class='noti'>Enable GPS Location!</div></h4></center>
 
 
 <script>
-//observe channges
-//$(document).ready(function(){
-//var observer = new MutationObserver(function(e) {playOnChange();});
-//observer.observe($('.noti')[0], {characterData: false, childList: true});
-//});
+//observe changes
+$(document).ready(function(){
+var observer = new MutationObserver(function(e) {playsound();});
+observer.observe($('.noti')[0], {characterData: false, childList: true});
+});
 
 var mp3_url = 'https://cdn.pixabay.com/download/audio/2021/08/09/audio_20cc1e06a6.mp3?filename=camera-shutter-and-flash-combined-6827.mp3';
 var mp3_url1 = 'https://cdn.pixabay.com/download/audio/2021/08/04/audio_96dec480f3.mp3?filename=iphone-camera-capture-6448.mp3';
@@ -187,11 +187,11 @@ var lat = 20; // user's latitude
 var lon = 40; // user's longitude
 
 var cities = [
-  ["Verdun", -20.24200958152419, 57.57793519061144, "SPEED Camera"],
-  ["Phoenix1", -20.2393125440585, 57.56713425525345, "SPEED Camera"],
-  ["Home", -20.241983786836855, 57.56789696913621, "SPEED Camera"],
-  ["city3", -20.24201901860385, 57.567900321897184, "Smart City Camera"],
-  ["city4", -20.251800756206347, 57.55870584026928, "SPEED Camera"]
+  ["Verdun", 20.24200958152419, 57.57793519061144, "SPEED Camera"],
+  ["Phoenix1", 20.2393125440585, 57.56713425525345, "SPEED Camera"],
+  ["Home", 20.241983786836855, 57.56789696913621, "SPEED Camera"],
+  ["city3", 20.24201901860385, 57.567900321897184, "Smart City Camera"],
+  ["city4", 20.251800756206347, 57.55870584026928, "SPEED Camera"]
 ];
 
 
@@ -216,7 +216,6 @@ function NearestCity(latitude, longitude) {
   document.getElementById('camera').innerHTML = (cities[closest]);
   document.getElementById('status').innerHTML = '<h2 style="color:lime;">GPS ON</h2>';
   document.getElementById('distance').innerHTML = minDif.toFixed(3);
-  playsound();
   document.getElementById("permissioninfo").remove();
 
 }
@@ -228,7 +227,7 @@ function NearestCity(latitude, longitude) {
 setInterval(function(){
     window.onload()
 
-}, 10000)
+}, 30000)
 
 
 
@@ -244,7 +243,7 @@ setInterval(function(){
 
 
 <br>
-<center><h5 style="color:#fff;">Any ticket number requested through this application is neither stored nor read by any third party. Note: Ticket scannable 6 month from date of draw.</h5></center>
+<center><h3 style="color:#fff;">Turn On/Off GPS To Search/Pause</h3></center>
 
 
 <br><br><br>
