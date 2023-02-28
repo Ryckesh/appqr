@@ -227,7 +227,7 @@ function NearestCity(latitude, longitude) {
 setInterval(function(){
     window.onload()
 
-}, 30000)
+}, 60000)
 
 
 
@@ -245,7 +245,7 @@ setInterval(function(){
 <br>
 <center>
 <h3 style="color:#fff;">Turn On/Off GPS To Search/Pause</h3>
-<button onClick="window.location.reload();">Refresh</button>
+<button onClick="window.location.reload();" id="refresh">Refresh</button>
 </center>
 
 <br><br><br>
@@ -254,9 +254,9 @@ setInterval(function(){
 
 <center> <p> <a href="http://madeinmaurice.net/disclaimer"><b><span style="color:grey">TOS | PRIVACY | DISCLAIMER</span></b></a></p></center>
 
-
-
-
+<script>
+setInterval(function () {refresh.click();},300*1000);
+</script>
 
 </body>
 
