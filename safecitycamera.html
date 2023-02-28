@@ -107,43 +107,45 @@ text-decoration: underline;
 
 
 <script>
+//observe channges
 //$(document).ready(function(){
 //var observer = new MutationObserver(function(e) {playOnChange();});
 //observer.observe($('.noti')[0], {characterData: false, childList: true});
 //});
 
-var mp3_url = 'https://media.geeksforgeeks.org/wp-content/uploads/20190531135120/beep.mp3';
+var mp3_url = 'https://cdn.pixabay.com/download/audio/2021/08/09/audio_20cc1e06a6.mp3?filename=camera-shutter-and-flash-combined-6827.mp3';
+var mp3_url1 = 'https://cdn.pixabay.com/download/audio/2021/08/04/audio_96dec480f3.mp3?filename=iphone-camera-capture-6448.mp3';
 
 function playOnChange() {
     (new Audio(mp3_url)).play();
 }
-</script>
 
+function playOnChange1() {
+    (new Audio(mp3_url1)).play();
+}
 
-<script>
+function playsound() {
+let ele = document.getElementById('camera');
 
-// Create mutation observer
-var observer = new MutationObserver(function(mutations) {
-
-    // Something has changed in the #select2-choices
+  if (ele.innerHTML.includes('SPEED Camera'))  {
     playOnChange();
 
-});
+  } else if (ele.innerHTML.includes('undefined'))  {
+      document.getElementById('camera').innerHTML = 'Searching...'
 
-// Just look out for childList changes
-var config = {
-  attributes: false,
-  childList: true,
-  characterData: false
-};
+    } else if (ele.innerHTML.includes('Smart City Camera'))  {
+        playOnChange1();
 
-// Select target
-var target = document.querySelector('#camera');
+  } else {
+    ////
 
-// Launch observer with above configuration
-observer.observe(target, config);
+}
+
+}
 
 </script>
+
+
 
 <script>
 
@@ -185,11 +187,11 @@ var lat = 20; // user's latitude
 var lon = 40; // user's longitude
 
 var cities = [
-  ["Phoenix", -20.24200958152419, 57.57793519061144, "blah"],
-  ["Phoenix1", -20.2393125440585, 57.56713425525345, "blah"],
-  ["Home", -20.241983786836855, 57.56789696913621, "Speed Camera"],
-  ["city3", -20.24201901860385, 57.567900321897184, "Moved"],
-  ["city4", -20.251800756206347, 57.55870584026928, "blah"]
+  ["Verdun", -20.24200958152419, 57.57793519061144, "SPEED Camera"],
+  ["Phoenix1", -20.2393125440585, 57.56713425525345, "SPEED Camera"],
+  ["Home", -20.241983786836855, 57.56789696913621, "SPEED Camera"],
+  ["city3", -20.24201901860385, 57.567900321897184, "Smart City Camera"],
+  ["city4", -20.251800756206347, 57.55870584026928, "SPEED Camera"]
 ];
 
 
@@ -214,7 +216,7 @@ function NearestCity(latitude, longitude) {
   document.getElementById('camera').innerHTML = (cities[closest]);
   document.getElementById('status').innerHTML = '<h2 style="color:lime;">GPS ON</h2>';
   document.getElementById('distance').innerHTML = minDif.toFixed(3);
-
+  playsound();
   document.getElementById("permissioninfo").remove();
 
 }
@@ -223,12 +225,12 @@ function NearestCity(latitude, longitude) {
 
 
 
-
-
-
 setInterval(function(){
     window.onload()
-}, 30000)
+
+}, 10000)
+
+
 
 
 </script>
